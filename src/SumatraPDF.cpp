@@ -1025,17 +1025,25 @@ static void SetFrameTitleForTab(TabInfo* tab, bool needRefresh) {
         if (title != nullptr) {
             str::NormalizeWS(title);
             docTitle.Set(title);
-            if (!str::IsEmpty(title)) {
+            /*if (!str::IsEmpty(title)) {
                 docTitle.Set(str::Format(L"- [%s] ", title));
-            }
+            }*/
         }
     }
 
     if (!IsUIRightToLeft()) {
-        tab->frameTitle.Set(str::Format(L"%s %s- %s", titlePath, docTitle.Get(), SUMATRA_WINDOW_TITLE));
+        if (!str::IsEmpty(docTitle.Get())) {
+            tab->frameTitle.Set(str::Format(L"%s (%s)", docTitle.Get(), SUMATRA_WINDOW_TITLE));
+        } else {
+            tab->frameTitle.Set(str::Format(L"%s (%s)", titlePath, SUMATRA_WINDOW_TITLE));
+        }
     } else {
         // explicitly revert the title, so that filenames aren't garbled
-        tab->frameTitle.Set(str::Format(L"%s %s- %s", SUMATRA_WINDOW_TITLE, docTitle.Get(), titlePath));
+        if (!str::IsEmpty(docTitle.Get())) {
+            tab->frameTitle.Set(str::Format(L"%s (%s)", docTitle.Get(), SUMATRA_WINDOW_TITLE));
+        } else {
+            tab->frameTitle.Set(str::Format(L"%s (%s)", titlePath, SUMATRA_WINDOW_TITLE));
+        }
     }
     if (needRefresh && tab->ctrl) {
         // TODO: this isn't visible when tabs are used

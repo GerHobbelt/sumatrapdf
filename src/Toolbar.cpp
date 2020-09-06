@@ -57,9 +57,9 @@ struct ToolbarButtonInfo {
 };
 
 static ToolbarButtonInfo gToolbarButtons[] = {
-    {0, CmdOpen, _TRN("Open"), MF_REQ_DISK_ACCESS},
+    //{0, CmdOpen, _TRN("Open"), MF_REQ_DISK_ACCESS},
     // the Open button is replaced with a Save As button in Plugin mode:
-    //  { 12,  IDM_SAVEAS,            _TRN("Save As"),        MF_REQ_DISK_ACCESS },
+    { 12,  CmdSaveAs,            _TRN("Save As"),        MF_REQ_DISK_ACCESS },
     {1, CmdPrint, _TRN("Print"), MF_REQ_PRINTER_ACCESS},
     {-1, CmdGoToPage, nullptr, 0},
     {2, CmdGoToPrevPage, _TRN("Previous Page"), 0},
@@ -677,7 +677,7 @@ void CreateToolbar(WindowInfo* win) {
     Size size{-1, -1};
     if (useSvg) {
         // TODO: bitmap is skewed for dxDpi of 20, 24 etc.
-        int dxDpi = 16;
+        int dxDpi = 24;
         int scale = (int)ceilf((float)dpi / 96.f);
         int dx = dxDpi * scale;
         size.dx = dx;

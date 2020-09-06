@@ -16,106 +16,69 @@ extern "C" {
 #include "EngineBase.h"
 #include "EngineFzUtil.h"
 
-// https://github.com/tabler/tabler-icons/blob/master/icons/folder.svg
+// material icons https://material.io/resources/icons folder-open
 static const char* gIconFileOpen =
-    R"(<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-folder" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    R"(<svg xmlns="http://www.w3.org/2000/svg" height="24" color="currentColor" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/>
+<path d="M22 6H12l-2-2H2v16h20V6zm-2 12H4V8h16v10z"/></svg>)";
+    /*R"(<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-folder" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
   <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2" />
-</svg>)";
+</svg>)";*/
 
-// https://github.com/tabler/tabler-icons/blob/master/icons/printer.svg
+
+// material icons https://material.io/resources/icons print
 static const char* gIconPrint =
-    R"(<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-  <path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
-  <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
-  <rect x="7" y="13" width="10" height="8" rx="2" />
-</svg>)";
+    R"(<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/>
+<path d="M22 8H2v9h4v4h12v-4h4V8zm-6 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>)";
 
-// https://github.com/tabler/tabler-icons/blob/master/icons/arrow-left.svg
+
+// material icons https://material.io/resources/icons arrow-back
 static const char* gIconPagePrev =
-    R"(<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-  <line x1="5" y1="12" x2="19" y2="12" />
-  <line x1="5" y1="12" x2="11" y2="18" />
-  <line x1="5" y1="12" x2="11" y2="6" />
-</svg>)";
+    R"(<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/>
+<path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>)";
 
-// https://github.com/tabler/tabler-icons/blob/master/icons/arrow-right.svg
+// material icons https://material.io/resources/icons arrow-forward
 static const char* gIconPageNext =
-    R"(<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-  <line x1="5" y1="12" x2="19" y2="12" />
-  <line x1="13" y1="18" x2="19" y2="12" />
-  <line x1="13" y1="6" x2="19" y2="12" />
-</svg>)";
+    R"(<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+<path d="M0 0h24v24H0z" fill="none"/><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>)";
 
-// https://github.com/tabler/tabler-icons/blob/master/icons/layout-rows.svg
+// https://materialdesignicons.com/  arrow-split-vertical
 static const char* gIconLayoutContinous =
-    R"(<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-layout-rows" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-  <rect x="3" y="3" width="18" height="18" rx="2" />
-  <line x1="3" y1="12" x2="21" y2="12" />
-</svg>)";
+    R"(<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+<path d="M18,16V13H15V22H13V2H15V11H18V8L22,12L18,16M2,12L6,16V13H9V22H11V2H9V11H6V8L2,12Z" /></svg>)";
 
-// https://github.com/tabler/tabler-icons/blob/master/icons/square.svg
+// https://materialdesignicons.com/  arrow-split-horizontal
 static const char* gIconLayoutSinglePage =
-    R"(<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-  <rect x="4" y="4" width="16" height="16" rx="2" />
-</svg>)";
+    R"(<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+<path d="M8,18H11V15H2V13H22V15H13V18H16L12,22L8,18M12,2L8,6H11V9H2V11H22V9H13V6H16L12,2Z" /></svg>)";
 
-// https://github.com/tabler/tabler-icons/blob/master/icons/chevron-left.svg
+//   material icons https://material.io/resources/icons chevron-left
 static const char* gIconSearchPrev =
-    R"(<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-  <polyline points="15 6 9 12 15 18" />
-</svg>)";
+    R"(<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/>
+<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>)";
 
-// https://github.com/tabler/tabler-icons/blob/master/icons/chevron-right.svg
+// material icons https://material.io/resources/icons chevron-right
 static const char* gIconSearchNext =
-    R"(<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-  <polyline points="9 6 15 12 9 18" />
-</svg>)";
+    R"(<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>)";
 
-// https://github.com/tabler/tabler-icons/blob/master/icons/letter-case.svg
+//  https://materialdesignicons.com/  format-letter-case
 static const char* gIconMatchCase =
-    R"(<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-letter-case" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="18" cy="16" r="3" />
-  <line x1="21" y1="13" x2="21" y2="19" />
-  <path d="M3 19l5 -13l5 13" />
-  <line x1="5" y1="14" x2="11" y2="14" />
-</svg>)";
+    R"(<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+<path d="M20.06,18C20,17.83 19.91,17.54 19.86,17.11C19.19,17.81 18.38,18.16 17.45,18.16C16.62,18.16 15.93,17.92 15.4,17.45C14.87,17 14.6,16.39 14.6,15.66C14.6,14.78 14.93,14.1 15.6,13.61C16.27,13.12 17.21,12.88 18.43,12.88H19.83V12.24C19.83,11.75 19.68,11.36 19.38,11.07C19.08,10.78 18.63,10.64 18.05,10.64C17.53,10.64 17.1,10.76 16.75,11C16.4,11.25 16.23,11.54 16.23,11.89H14.77C14.77,11.46 14.92,11.05 15.22,10.65C15.5,10.25 15.93,9.94 16.44,9.71C16.95,9.5 17.5,9.36 18.13,9.36C19.11,9.36 19.87,9.6 20.42,10.09C20.97,10.58 21.26,11.25 21.28,12.11V16C21.28,16.8 21.38,17.42 21.58,17.88V18H20.06M17.66,16.88C18.11,16.88 18.54,16.77 18.95,16.56C19.35,16.35 19.65,16.07 19.83,15.73V14.16H18.7C16.93,14.16 16.04,14.63 16.04,15.57C16.04,16 16.19,16.3 16.5,16.53C16.8,16.76 17.18,16.88 17.66,16.88M5.46,13.71H9.53L7.5,8.29L5.46,13.71M6.64,6H8.36L13.07,18H11.14L10.17,15.43H4.82L3.86,18H1.93L6.64,6Z" /></svg>)";
 
-// https://github.com/tabler/tabler-icons/blob/master/icons/zoom-in.svg
+// material icons https://material.io/resources/icons zoom-in
 static const char* gIconZoomIn =
-    R"(<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-zoom-in" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="7" y1="10" x2="13" y2="10" />
-  <line x1="10" y1="7" x2="10" y2="13" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>)";
+    R"(<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+<path d="M0 0h24v24H0V0z" fill="none"/>
+<path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg>)";
 
-// https://github.com/tabler/tabler-icons/blob/master/icons/zoom-out.svg
+// material icons https://material.io/resources/icons zoom-out
 static const char* gIconZoomOut =
-    R"(<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-zoom-out" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="7" y1="10" x2="13" y2="10" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>)";
+    R"(<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7z"/></svg>)";
 
-// https://github.com/tabler/tabler-icons/blob/master/icons/floppy-disk.svg
+// material icons https://material.io/resources/icons save
 static const char* gIconSave =
-    R"(<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-floppy-disk" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M18 20h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9l5 5v9a2 2 0 0 1 -2 2" />
-  <circle cx="12" cy="13" r="2" />
-  <polyline points="4 8 10 8 10 4" />
-</svg>)";
+    R"(<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M17 3H3v18h18V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg>)";
 
 // clang-format off
 static const char* gAllIcons[] = {
